@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<title>Imbue App</title>
+		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script type="text/javascript" charset="utf-8">
+
+			function sleep() 
+			{
+				var miliseconds = 5000;
+           		var currentTime = new Date().getTime();
+           		var imgLink = "loadingGif.gif"
+
+           		while (currentTime + miliseconds >= new Date().getTime()) 
+           		{
+           			//do nothing
+           		}
+
+           		window.location.href = "results.html";
+       		}
+
+		</script>
+	</head>
+
+	<body background="Grey-background.jpg">
+		<!--<h3>PhoneGap Camera Upload Demo</h3>-->
+		<img id="imbuelogo" src="log.png" style="width:50%; height:auto">
+    	
+    	<img id="loadingImage" src="loadingGif.gif" onload="sleep();">
+
+	    <br/>
+	</body>
+</html>

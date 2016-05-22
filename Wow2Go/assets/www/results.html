@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<title>Imbue App</title>
+		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script type="text/javascript" charset="utf-8">
+
+			var resultText;
+			function DisplayResults()
+			{
+				resultText = localStorage.getItem('_Response');
+				alert("Response:" + resultText);
+				Inject();
+
+			}
+
+			function Inject()
+			{
+				alert(resultText);
+				var node = document.getElementById("divOne");
+    			var newText = resultText;
+    			var newT = document.createTextNode(newText);
+    			node.appendChild(newT);
+
+			}
+
+		</script>
+	</head>
+
+	<body background="Grey-background.jpg" onload="DisplayResults();">
+		<!--<h3>PhoneGap Camera Upload Demo</h3>-->
+		<img id="imbuelogo" src="log.png" style="width:50%; height:auto">
+    	
+    	<div id="divOne"><h4></h4></div>
+
+	    <br/>
+	</body>
+</html>

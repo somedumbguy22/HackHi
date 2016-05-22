@@ -1,0 +1,187 @@
+body { font: 100%/1.5 Helvetica, Arial, sans-serif }
+body { background-color: #000000}
+/*body {background-image: url('Wallpaper2.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;;
+}*/
+
+img 
+{
+    border: 5px;
+    margin-left:10%;
+    margin-right:10%;
+    width:80%;
+    height: auto;
+
+}
+
+ul 
+{
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    color: #FFFFFF;
+
+}
+
+li
+{
+    left: 50%;
+    list-style-position: center;
+}
+
+.queuelist
+{
+    text-align: center;
+    font-family: helvetica;
+    color: #FFFFFF;
+    font-size: 20px;
+    border-left: 5px;
+    border-bottom: 5px;
+    border-right: 5px;
+    border-top: 5px;
+}
+
+.testlist
+{
+    text-align: center;
+    font-family: helvetica;
+    color: #FFFFFF;
+    font-size: 20px;
+    border-left: 5px;
+    border-bottom: 5px;
+    border-right: 5px;
+    border-top: 5px;
+    list-style-type: none;
+}
+
+.textmain
+{
+    text-align: center;
+    font-family: helvetica;
+    color: #FFFFFF;
+    font-size: 30px;
+    border-left: 5px;
+    border-bottom: 5px;
+    border-right: 5px;
+    border-top: 5px;
+}
+
+form
+{
+    color: #FFFFFF;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.mainpage
+{
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 70%;
+    height: auto;
+}
+
+p { margin-bottom: 1em }
+
+#container 
+{
+    width: auto;
+    margin: 0 auto;
+}
+
+/* ===[ Buttons ]=== */
+
+.button 
+{
+    position: relative;
+    cursor: pointer;
+    font: bold 12px/normal 'Segoe UI', Arial, sans-serif;
+    color: #333;
+    text-decoration: none;
+    text-shadow: 1px 1px rgba(255,255,255,0.5);
+    border: 1px solid rgba(0,0,0,.1);
+    padding: 5px 10px 6px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #EEE;
+    background-image: -moz-linear-gradient(rgba(255,255,255,0.2), rgba(0,0,0,0.2));
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255,255,255,0.2)), color-stop(100%, rgba(0,0,0,0.2)));
+    background-image: -webkit-linear-gradient(rgba(255,255,255,0.2), rgba(0,0,0,0.2));
+    background-image: -o-linear-gradient(rgba(255,255,255,0.2), rgba(0,0,0,0.2));
+    background-image: linear-gradient(rgba(255,255,255,0.2), rgba(0,0,0,0.2));
+    -webkit-box-shadow: inset 0px 1px rgba(255,255,255,0.6), 0px 0px 3px 0px rgba(0,0,0,.2);
+    -moz-box-shadow: inset 0px 1px rgba(255,255,255,0.6), 0px 0px 3px 0px rgba(0,0,0,.2);
+    box-shadow: inset 0px 1px rgba(255,255,255,0.6), 0px 0px 4px 0px rgba(0,0,0,.2);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+.button::-moz-focus-inner 
+{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+a.button { outline: 0 }
+
+/* ===[ Default hover ]=== */
+
+.button:hover, .button:active 
+{
+    text-decoration: none;
+    background-color: #F9F9F9;
+}
+
+/* ===[ Default active ]=== */
+
+.button:active 
+{
+    top: 1px;
+    margin-bottom: 1px;
+    border-bottom-width: 1px;
+    background-color: #F9F9F9;
+    background-image: -moz-linear-gradient(rgba(0,0,0,0.2), rgba(255,255,255,0.2));
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0,0,0,0.2)), color-stop(100%, rgba(255,255,255,0.2)));
+    background-image: -webkit-linear-gradient(rgba(0,0,0,0.2), rgba(255,255,255,0.2));
+    background-image: -o-linear-gradient(rgba(0,0,0,0.2), rgba(255,255,255,0.2));
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(255,255,255,0.2));
+}
+
+/* ===[ Button sizes ]=== */
+
+.button.large 
+{
+    padding: 10px 20px 11px;
+    font-size: 14px;
+}
+
+/* ===[ Button colors ]=== */
+
+.button.red, .button.green, .button.blue, .button.yellow, .button.orange 
+{
+    color: #FFF;
+    text-shadow: 0 -1px rgba(0,0,0,0.15);
+}
+
+.button.red { background-color: #E62727 }
+
+.button.red:hover, .button.red:active { background-color: #FF2F2F }
+
+.button.green { background-color: #5C9A1B }
+
+.button.green:hover, .button.green:active { background-color: #A0CF0C }
+
+.button.blue { background-color: #A91F62 }
+
+.button.blue:hover, .button.blue:active { background-color: #BA55D3 }
+
+.button.yellow { background-color: #FFB515 }
+
+.button.yellow:hover, .button.yellow:active { background-color: #FFC74F }
+
+.button.orange { background-color: #FF5C00 }
+
+.button.orange:hover, .button.orange:active { background-color: #FF782F }

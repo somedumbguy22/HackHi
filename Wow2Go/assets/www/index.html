@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<title>Imbue App</title>
+		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			var deviceReady = false;
+
+		    /**
+		     * Take picture with camera
+		     */
+		    function takePicture() {
+		        navigator.camera.getPicture(
+		            function(uri) {
+		                var img = document.getElementById('camera_image');
+		                img.style.visibility = "visible";
+		                img.style.display = "block";
+		                img.src = uri;
+		                document.getElementById('camera_status').innerHTML = "Success";
+		            },
+		            function(e) {
+		                console.log("Error getting picture: " + e);
+		                document.getElementById('camera_status').innerHTML = "Error getting picture.";
+		            },
+		            { quality: 50, destinationType: navigator.camera.DestinationType.FILE_URI});
+		    };
+
+		    /**
+		     * Select picture from library
+		     */
+		    function selectPicture() {
+		        navigator.camera.getPicture(
+		            function(uri) {
+		                var img = document.getElementById('camera_image');
+		                img.style.visibility = "visible";
+		                img.style.display = "block";
+		                img.src = uri;
+		                document.getElementById('camera_status').innerHTML = "Success";
+		            },
+		            function(e) {
+		                console.log("Error getting picture: " + e);
+		                document.getElementById('camera_status').innerHTML = "Error getting picture.";
+		            },
+		            { quality: 50, destinationType: navigator.camera.DestinationType.FILE_URI, sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY});
+		    };
+		    
+		    /**
+		     * Upload current picture
+		     */
+		    function uploadPicture() {
+		    	
+		    	// Get URI of picture to upload
+		        var img = document.getElementById('camera_image');
+		        var imageURI = img.src;
+		        if (!imageURI || (img.style.display == "none")) {
+		            document.getElementById('camera_status').innerHTML = "Take picture or select picture from library first.";
+		            return;
+		        }
+		        
+		        // Verify server has been entered
+		        server = document.getElementById('serverUrl').value;
+		        if (server) {
+		        	
+		            // Specify transfer options
+		            var options = new FileUploadOptions();
+		            options.fileKey="file";
+		            options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+		            options.mimeType="image/jpeg";
+		            options.chunkedMode = false;
+
+		            // Transfer picture to server
+		            var ft = new FileTransfer();
+		            ft.upload(imageURI, server, function(r) {
+		                document.getElementById('camera_status').innerHTML = "Upload successful: "+r.bytesSent+" bytes uploaded.";
+		                var uploadResult = r.response;
+		                localStorage.setItem('_Response', uploadResult);
+		                window.location.href = "results.html";            	
+		            }, function(error) {
+		                document.getElementById('camera_status').innerHTML = "Upload failed: Code = "+error.code;            	
+		            }, options);
+		        }
+		    }
+
+		    function fakeSuccess()
+		    {
+		    	alert("Success!");
+		    	window.location.href = "loading.html";
+		    }
+
+		    /**
+		     * Function called when page has finished loading.
+		     */
+		    function init() {
+		        document.addEventListener("deviceready", function() {deviceReady = true;}, false);
+		        window.setTimeout(function() {
+		            if (!deviceReady) {
+		                alert("Error: PhoneGap did not initialize.  Demo will not run correctly.");
+		            }
+		        },2000);
+		    }
+
+		</script>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+
+	<center>
+	<body background="Grey-background.jpg" onload="init();">
+		<!--<h3>PhoneGap Camera Upload Demo</h3>-->
+		<img id="imbuelogo" src="log.png" style="width:50%; height:auto">
+    	<hr></hr>
+	    <div>
+	        <h3>Server URL:</h3>
+	        <input id="serverUrl" type="text" value="http://192.81.216.122:5000/api" />
+	    </div>
+	    <br/>
+
+		<!-- Camera -->
+		<div>
+			<h3>Camera:</h3>
+			<b>Status:</b> <span id="camera_status"></span><br>
+	        <b>Image:</b> <img style="width:240px;visibility:hidden;display:none;" id="camera_image" src="" />
+		</div>
+	    <hr></hr>
+	    <!-- Actions -->
+	    <div>
+	        <input type="button" class="button large green" onclick="takePicture();" value="Take Picture" /><br/>
+	        <input type="button" class="button large green" onclick="selectPicture();" value="Select Picture from Library" /><br/>
+	        <input type="button" class="button large green" onclick="uploadPicture();" value="Upload Picture" />
+	    </div>
+		<hr></hr>
+
+	    <br/>
+	</body>
+	</center>
+</html>
